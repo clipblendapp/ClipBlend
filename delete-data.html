@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Deletion — ClipBlend</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.7;
+      color: #1a1a1a;
+      background: #f8f9fa;
+      padding: 24px 16px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    h1 { font-size: 1.75rem; margin-bottom: 8px; color: #111; }
+    h2 { font-size: 1.25rem; margin-top: 28px; margin-bottom: 12px; color: #222; }
+    p, li { font-size: 0.95rem; margin-bottom: 10px; }
+    ul, ol { padding-left: 24px; margin-bottom: 16px; }
+    .date { color: #666; font-size: 0.9rem; margin-bottom: 24px; }
+    a { color: #1a73e8; }
+    .step { background: #fff; padding: 16px; border-radius: 8px; border: 1px solid #e0e0e0; margin-bottom: 12px; }
+    .step-number { display: inline-block; width: 28px; height: 28px; background: #1a73e8; color: #fff; border-radius: 50%; text-align: center; line-height: 28px; font-weight: 700; font-size: 0.85rem; margin-right: 10px; }
+    .contact { background: #e8f0fe; padding: 16px; border-radius: 8px; margin-top: 24px; }
+    .warning { background: #fff3cd; padding: 12px 16px; border-radius: 8px; border-left: 4px solid #ffc107; margin: 16px 0; }
+    .doc-nav { margin: 0 0 20px 0; padding: 10px 0; border-bottom: 1px solid #e0e0e0; font-size: 0.85rem; }
+    .doc-nav a { color: #1a73e8; margin-right: 12px; text-decoration: none; }
+    .doc-nav a:hover { text-decoration: underline; }
+    .doc-footer { margin-top: 40px; padding-top: 16px; border-top: 1px solid #e0e0e0; font-size: 0.85rem; color: #666; }
+    .doc-footer a { color: #1a73e8; margin-right: 12px; text-decoration: none; }
+    .data-deletion-url { background: #e8f4fd; padding: 12px 16px; border-radius: 8px; border: 1px solid #1a73e8; margin: 12px 0 20px 0; font-size: 0.95rem; word-break: break-all; }
+  </style>
+</head>
+<body>
+
+<nav class="doc-nav">
+  <a href="privacy-policy.html">Privacy Policy</a>
+  <a href="terms.html">Terms of Service</a>
+  <a href="delete-data.html">Data Deletion</a>
+</nav>
+
+<h1>Data Deletion Instructions</h1>
+<p class="date">Last updated: 25 May 2026 — ClipBlend — com.clipblend.playlistbuilder</p>
+
+<p class="data-deletion-url"><strong>Data deletion URL (Google Play — Data deletion):</strong> <a href="https://slatop.github.io/youtube-like-manager/en/delete-data.html">https://slatop.github.io/youtube-like-manager/en/delete-data.html</a> — public page; no login or personal data required. Enter this exact URL in Play Console (Data safety → Data deletion).</p>
+
+<p><strong>Published legal documents (English version, as submitted to the store):</strong> <a href="https://slatop.github.io/youtube-like-manager/en/privacy-policy.html">Privacy Policy</a> · <a href="https://slatop.github.io/youtube-like-manager/en/terms.html">Terms of Service</a> · <a href="https://slatop.github.io/youtube-like-manager/en/delete-data.html">Data deletion</a> (same host).</p>
+
+<p><strong>Sign-in methods:</strong> The App supports Firebase Authentication via <strong>email and password</strong> or <strong>Continue with Google</strong> (Google OAuth for sign-in and registration). Deleting the account in the App removes the Firebase user record regardless of the registration method used.</p>
+
+<p><strong>This page describes how users can request deletion of data associated with the App.</strong></p>
+
+<p><strong>We do not store personal data on our own server infrastructure — data is held only in Google services (Firebase, Google Analytics, AdMob, and Firebase Crashlytics when enabled).</strong></p>
+
+<p><strong>The App allows users to delete their data stored by the Controller in Firebase services (Authentication and Firestore) directly in the App (Account → &quot;Delete account&quot;) — after signing in.</strong></p>
+
+<p><strong>If you change or lose your device,</strong> reinstall the App, sign in with the same account, and use &quot;Delete account&quot;. The Controller <strong>does not</strong> delete Firebase accounts or linked Firestore data by email alone.</p>
+
+<p><strong>The Controller does not keep additional copies of user data outside Google's services used by the App (including Firebase, Google Analytics, AdMob, and Firebase Crashlytics when enabled); all data deletion operations are performed directly in those services.</strong></p>
+<p>Deletion of the Firebase Authentication user and linked Firestore documents is triggered from the App: after confirming <strong>&quot;Delete account&quot;</strong>, a <strong>Cloud Functions</strong> job removes linked documents for your UID (<code>users</code>, <code>userFetchLimits</code>).</p>
+
+<h2>Quick deletion of all data</h2>
+<ul>
+  <li><strong>Uninstall the App</strong> — removes all local data on the device.</li>
+  <li><strong>Delete account in the App</strong> (Account → Delete account) — removes the Firebase Authentication user; linked Firestore data is then cleaned up automatically by the backend.</li>
+  <li><strong>Revoke Google access</strong> for the App at <a href="https://myaccount.google.com/permissions" target="_blank">myaccount.google.com/permissions</a> — blocks further YouTube API access until you re-authorise; does not delete the Firebase account.</li>
+</ul>
+
+<p>We respect your right to erasure of personal data under Art. 17 GDPR. ClipBlend is created by <strong>Sławomir Toporek</strong>, a natural person not engaged in business activity (developer pseudonym: clipblendapp). Below we describe how you can delete your data.</p>
+
+<p><strong>Third-party providers:</strong> Some data may be retained by third-party providers according to their own policies (e.g. Google), even after using the options below.</p>
+
+<p><strong>YouTube Charts:</strong> a shared, aggregated metadata cache in Firestore (the same for all users) — <strong>this is not personal data about you</strong> and does not require individual deletion linked to an account.</p>
+
+<h2>Google Analytics for Firebase (GA4)</h2>
+<p>Usage and product events are sent to <strong>Google Analytics for Firebase (GA4)</strong> when using the App in production. The Developer does not maintain a separate analytics database. Data is processed by Google; retention and deletion are governed by <a href="https://policies.google.com/privacy" target="_blank">Google's Privacy Policy</a> and <a href="https://support.google.com/analytics/answer/7667196" target="_blank">Google Analytics / Firebase data settings</a>. You can manage certain account activity settings at <a href="https://myaccount.google.com" target="_blank">Google Account</a>.</p>
+<p>Analytics data is not used by the Controller to directly identify you.</p>
+<p><strong>Data are processed in pseudonymised form.</strong></p>
+
+<h2>Local storage (AsyncStorage)</h2>
+<p>YouTube cache and settings are in <strong>AsyncStorage</strong> on the device only; <strong>not used by the Controller to identify you</strong>. It is <strong>not additionally encrypted at the application level</strong>. <strong>Data are protected by the operating system's security mechanisms (app sandbox).</strong> <strong>Remove it by uninstalling the App or using &quot;Clear data&quot;</strong> in Android settings.</p>
+
+<h2>Option 1: Log out from the App</h2>
+
+<div class="step">
+  <p><span class="step-number">1</span> Open the ClipBlend App.</p>
+</div>
+<div class="step">
+  <p><span class="step-number">2</span> Go to the <strong>Account</strong> section (account icon, top right).</p>
+</div>
+<div class="step">
+  <p><span class="step-number">3</span> <strong>&quot;Log out of YouTube&quot;</strong> — removes Google/YouTube tokens from the App and ends the YouTube session. <strong>Does not automatically delete</strong> the <code>video-storage</code> record from device storage.</p>
+</div>
+<div class="step">
+  <p><span class="step-number">4</span> <strong>&quot;Log out of the App&quot;</strong> — ends the Firebase session, removes Google/YouTube tokens and clears UI-visible state. <strong>Does not guarantee deletion</strong> of the <code>video-storage</code> file from AsyncStorage.</p>
+</div>
+
+<div class="warning">
+  <p><strong>Note:</strong> To <strong>definitely</strong> delete the local data copy (including <code>video-storage</code>), use Option 3 (uninstall) or the system <strong>Clear data</strong> function for the App in Android settings.</p>
+</div>
+
+<h2>Option 2: Revoke OAuth access (YouTube)</h2>
+
+<div class="step">
+  <p><span class="step-number">1</span> Go to <a href="https://myaccount.google.com/permissions" target="_blank">myaccount.google.com/permissions</a>.</p>
+</div>
+<div class="step">
+  <p><span class="step-number">2</span> Find <strong>&quot;ClipBlend&quot;</strong> in the list.</p>
+</div>
+<div class="step">
+  <p><span class="step-number">3</span> Click <strong>&quot;Remove access&quot;</strong> to revoke the App's permissions to your Google and YouTube account.</p>
+</div>
+
+<h2>Option 3: Uninstall the App</h2>
+<p>Uninstalling the App from your Android device removes all locally stored data (AsyncStorage), including:</p>
+<ul>
+  <li>Saved liked videos and playlist data;</li>
+  <li>Authentication tokens;</li>
+  <li>User preferences (theme, settings);</li>
+  <li>Ad-related data and ad-free mode status;</li>
+  <li>Local analytics flags (AsyncStorage keys of type <code>anl_*</code>).</li>
+</ul>
+
+<h2>Option 4: Delete account in the App</h2>
+
+<div class="step">
+  <p><span class="step-number">1</span> Open the ClipBlend App.</p>
+</div>
+<div class="step">
+  <p><span class="step-number">2</span> Go to the <strong>Account</strong> section.</p>
+</div>
+<div class="step">
+  <p><span class="step-number">3</span> Select <strong>&quot;Delete account&quot;</strong>.</p>
+</div>
+<div class="step">
+  <p><span class="step-number">4</span> Confirm the action. The Firebase Authentication user is deleted, and linked Firestore documents are then removed by the backend automation.</p>
+</div>
+
+<p>Account deletion covers:</p>
+<ul>
+  <li>Account data (email, UID) in Firebase Authentication;</li>
+  <li>User documents in Firestore (usage limit counters in <code>userFetchLimits</code>, abuse-prevention fields in <code>users</code>);</li>
+  <li>Associated identifiers and app data linked to the account.</li>
+</ul>
+
+<div class="warning">
+  <p><strong>Note:</strong> Account deletion is irreversible. Data cannot be recovered after deletion.</p>
+</div>
+
+<p>Deletion of account data begins as soon as you confirm the action: the Authentication user is removed and Cloud Functions clean linked Firestore rows, subject to propagation and backup delays on Google's systems.</p>
+
+<h2>Option 5: Contact (other requests)</h2>
+<p>For <strong>questions about this page</strong>, <strong>other GDPR rights</strong> (access, rectification, etc.) or <strong>Crashlytics</strong> matters per the Privacy Policy — <strong>not</strong> for deleting Firebase accounts or Firestore profiles (use Option 4 in the App for that):</p>
+
+<div class="contact">
+  <p><strong>Email:</strong> <a href="mailto:clipblendapp@gmail.com">clipblendapp@gmail.com</a></p>
+  <p>For requests that can be handled by email, the Controller will respond within <strong>30 days</strong> where Art. 12(3) GDPR applies.</p>
+</div>
+
+<h2>What data is deleted by each option?</h2>
+<ul>
+  <li><strong>Log out (Option 1):</strong> OAuth tokens, app account session — <strong>the <code>video-storage</code> record may remain</strong> on the device.</li>
+  <li><strong>Revoke OAuth (Option 2):</strong> the App's access to the YouTube API on Google's side — <strong>does not remove</strong> the <code>video-storage</code> file on the device.</li>
+  <li><strong>Uninstall / Clear data (Option 3):</strong> typically <strong>removes all</strong> local App storage (AsyncStorage), including <code>video-storage</code>, locally stored tokens, and preferences.</li>
+  <li><strong>Delete account in the App (Option 4):</strong> removes the Firebase Authentication user; Cloud Functions then delete linked Firestore documents for your UID (<code>users</code>, <code>userFetchLimits</code>). <strong>Google Analytics for Firebase (GA4)</strong> and <strong>Firebase Crashlytics</strong> data already collected on Google's side may be retained per Google's policies; further Crashlytics collection is linked to the same consent toggle as analytics (see Privacy Policy).</li>
+  <li><strong>Email contact (Option 5):</strong> questions and other GDPR requests as above — <strong>not</strong> for deleting Firebase accounts or Firestore profiles (use Option 4 in the App).</li>
+</ul>
+
+<p>Data processed by third-party services (Google AdMob, <strong>Google Analytics for Firebase (GA4)</strong>, and <strong>Firebase Crashlytics</strong> when enabled) is subject to those providers' data retention policies. For more information, see <a href="https://policies.google.com/privacy" target="_blank">Google's Privacy Policy</a>.</p>
+
+<footer class="doc-footer">
+  <a href="privacy-policy.html">Privacy Policy</a>
+  <a href="terms.html">Terms of Service</a>
+  <a href="delete-data.html">Data Deletion</a>
+</footer>
+
+</body>
+</html>
