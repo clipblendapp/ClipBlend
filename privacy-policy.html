@@ -101,7 +101,7 @@
   </tr>
   <tr>
     <td>User preferences</td>
-    <td>Selected theme (light/dark), display settings</td>
+    <td>Selected theme (light/dark), display settings, and whether to allow library synchronization over a mobile (cellular) data connection</td>
     <td>Device (AsyncStorage, usually in the same persisted store as the YouTube cache)</td>
   </tr>
   <tr>
@@ -123,6 +123,11 @@
     <td>Device region (locale)</td>
     <td>ISO 3166-1 alpha-2 region code (e.g. PL, US, GB)</td>
     <td>Read on-device via <strong>expo-localization</strong> to choose the default YouTube Charts list; not sent to the Developer's servers for user identification</td>
+  </tr>
+  <tr>
+    <td>Network connection type (local)</td>
+    <td>Whether the device is on Wi-Fi or cellular/mobile data when you start a synchronization</td>
+    <td>Read on-device via <strong>expo-network</strong> only when a sync is started, to apply your mobile-data preference; <strong>not stored</strong> and <strong>not sent</strong> to the Developer's servers</td>
   </tr>
   <tr>
     <td>App usage and product analytics</td>
@@ -167,8 +172,12 @@
     <td>Art. 6(1)(f) — legitimate interests (supporting a free app model)</td>
   </tr>
   <tr>
-    <td>Storing user preferences (theme, settings)</td>
+    <td>Storing user preferences (theme, settings, mobile data sync)</td>
     <td>Art. 6(1)(f) — legitimate interests (app functionality)</td>
+  </tr>
+  <tr>
+    <td>Applying the mobile data sync preference (local network check at sync start)</td>
+    <td>Art. 6(1)(f) — legitimate interests (respecting your connectivity choice; no server transmission)</td>
   </tr>
   <tr>
     <td>Security and abuse prevention</td>
@@ -250,6 +259,7 @@
 <ul>
   <li>The App uses <strong>YouTube API Services</strong>. By using the App, you agree to the <a href="https://www.youtube.com/t/terms" target="_blank">YouTube Terms of Service</a>.</li>
   <li>Access to your YouTube data (liked videos, playlists, channel information) under OAuth 2.0.</li>
+  <li>When you connect YouTube, the App requests <strong>read-only</strong> OAuth permission (<code>youtube.readonly</code>) and does <strong>not</strong> modify content on your YouTube channel in the current version.</li>
   <li>The App <strong>does not use YouTube data to build user profiles or for advertising purposes</strong>.</li>
   <li>A local copy of fetched data is kept on the device (AsyncStorage keys <code>video-storage-{user identifier}-{opaque suffix}</code>; the email is not stored in plaintext in the key).</li>
   <li>YouTube API terms: <a href="https://developers.google.com/youtube/terms/api-services-terms-of-service" target="_blank">YouTube API Services Terms of Service</a></li>
