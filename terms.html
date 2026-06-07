@@ -40,7 +40,7 @@
 </nav>
 
 <h1>Terms of Service — ClipBlend</h1>
-<p class="date">Last updated: 25 May 2026</p>
+<p class="date">Last updated: 13 May 2026</p>
 
 <p>These Terms of Service (the &quot;Terms&quot;) govern use of the mobile application <strong>ClipBlend</strong> (the &quot;App&quot;), created and made available by a <strong>natural person not engaged in business activity</strong> <strong>Sławomir Toporek</strong> (developer pseudonym: clipblendapp) (the &quot;Developer&quot;). By using the App, you accept these Terms.</p>
 
@@ -59,13 +59,13 @@
 <h2>2. Description of the service</h2>
 <p>The App allows Users to:</p>
 <ul>
-  <li>View and manage liked videos on YouTube;</li>
+  <li>View and browse liked videos from YouTube (synchronization and local organization on the device);</li>
   <li>View videos uploaded to their own YouTube channel;</li>
-  <li>Create, edit, and manage YouTube playlists;</li>
-  <li>Reorder videos in playlists (playlist editor);</li>
+  <li>Browse playlists synced from YouTube (list, details, and video metadata);</li>
+  <li>Organize videos locally in the playlist editor in the <strong>Create</strong> tab (e.g. reordering on the device);</li>
   <li>Browse <strong>YouTube Charts</strong> — lists derived from official YouTube Charts playlists; metadata may be refreshed on a schedule via the Developer's servers and stored in Firebase; video playback opens in the YouTube app or browser.</li>
 </ul>
-<p>The App acts as a client for YouTube Data API v3 and does not host or store video content. Chart lists are aggregated metadata only (not your private account data).</p>
+<p>In the current version, the App uses <strong>read-only</strong> YouTube API access (<code>youtube.readonly</code> OAuth scope): it synchronizes and displays your library but does <strong>not</strong> create, edit, or delete playlists or other content on your YouTube channel. The App acts as a client for YouTube Data API v3 and does not host or store video files. Chart lists are aggregated metadata only (not your private account data).</p>
 
 <h2>3. Conditions of use</h2>
 
@@ -73,6 +73,8 @@
 <ul>
   <li>The User must be at least <strong>16 years old</strong> (or have parental/guardian consent where required).</li>
   <li>YouTube features require a Google account and OAuth permissions.</li>
+  <li>The App requires an <strong>active internet connection</strong> for YouTube synchronization and other core online features. Without connectivity, synchronization and related functions do not work.</li>
+  <li>Library synchronization may download video metadata and thumbnails and may use <strong>mobile (cellular) data</strong> depending on your connection. You can allow or disallow cellular sync in <strong>Account → Allow Mobile Data Sync</strong>.</li>
   <li>The interactive video list in the <strong>Charts</strong> tab and the playlist video list in the <strong>Create</strong> tab require prior <strong>YouTube (Google) sign-in</strong> in the App.</li>
   <li>The User agrees to use the App in compliance with applicable law, these Terms, and Google and YouTube service terms.</li>
 </ul>
@@ -100,9 +102,10 @@
   <p>By using YouTube features, you are also subject to the <a href="https://www.youtube.com/t/terms" target="_blank">YouTube Terms of Service</a> and <a href="https://developers.google.com/youtube/terms/api-services-terms-of-service" target="_blank">YouTube API Services Terms of Service</a>.</p>
 </div>
 <ul>
-  <li>The App accesses YouTube data only to the extent you authorise (OAuth 2.0).</li>
+  <li>The App accesses YouTube data only to the extent you authorise (OAuth 2.0), currently under the <strong>read-only</strong> <code>youtube.readonly</code> scope.</li>
   <li>You may revoke the App's access at <a href="https://myaccount.google.com/permissions" target="_blank">myaccount.google.com/permissions</a>.</li>
   <li>The App does not store video files — only metadata (titles, thumbnails, video IDs) from the YouTube API.</li>
+  <li>If a future App version enables write access to your YouTube channel, it will request a broader OAuth scope and your renewed consent before doing so.</li>
 </ul>
 
 <h2>YouTube API limitations</h2>
